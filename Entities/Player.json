@@ -1,0 +1,63 @@
+{
+  "name": "Player",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "Reference to GameSession"
+    },
+    "name": {
+      "type": "string"
+    },
+    "avatar_emoji": {
+      "type": "string",
+      "default": "\ud83e\udde0"
+    },
+    "score": {
+      "type": "number",
+      "default": 0
+    },
+    "total_score": {
+      "type": "number",
+      "default": 0,
+      "description": "Cumulative score across all rounds"
+    },
+    "rounds_played": {
+      "type": "number",
+      "default": 0
+    },
+    "current_answer": {
+      "type": "string",
+      "enum": [
+        "romantic",
+        "platonic",
+        "both",
+        ""
+      ],
+      "default": ""
+    },
+    "answers_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_index": {
+            "type": "number"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "correct": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "session_id",
+ 
