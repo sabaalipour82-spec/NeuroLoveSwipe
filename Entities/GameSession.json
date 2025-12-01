@@ -1,0 +1,63 @@
+{
+  "name": "GameSession",
+  "type": "object",
+  "properties": {
+    "session_code": {
+      "type": "string",
+      "description": "Unique 6-character code for joining"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "lobby",
+        "playing",
+        "revealing",
+        "finished"
+      ],
+      "default": "lobby"
+    },
+    "current_question_index": {
+      "type": "number",
+      "default": 0
+    },
+    "total_questions": {
+      "type": "number",
+      "default": 15
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "mixed",
+        "hard"
+      ],
+      "default": "mixed"
+    },
+    "question_ids": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Randomized question IDs for this session"
+    },
+    "timer_seconds": {
+      "type": "number",
+      "default": 15
+    },
+    "sound_enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "current_question_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "votes": {
+      "type": "object",
+      "description": "Current question votes: {playerId: answer}"
+    }
+  },
+  "required": [
+    "session_code"
+  ]
+}
